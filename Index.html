@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SCAR - Personal AI Assistant</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Main container with dark theme -->
+    <div class="app-container">
+        <!-- Central chat/status area -->
+        <div class="main-area">
+            <div class="status-indicator" id="statusIndicator">SCAR is listening...</div>
+            <div class="response-area" id="responseArea">Hello, I'm SCAR. How can I assist you?</div>
+            <div class="transcript-area" id="transcriptArea"></div>
+        </div>
+
+        <!-- Right vertical control panel -->
+        <div class="control-panel">
+            <div class="toggle-container">
+                <div class="toggle-item">
+                    <span class="toggle-label">Live Screen</span>
+                    <label class="switch">
+                        <input type="checkbox" id="liveScreenToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-item">
+                    <span class="toggle-label">Bluetooth</span>
+                    <label class="switch">
+                        <input type="checkbox" id="bluetoothToggle">
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-item">
+                    <span class="toggle-label">Online</span>
+                    <label class="switch">
+                        <input type="checkbox" id="onlineToggle" checked>
+                        <span class="slider"></span>
+                    </label>
+                </div>
+            </div>
+        </div>
+
+        <!-- Top right 3-dot menu -->
+        <div class="menu-container">
+            <div class="menu-dots" id="menuDots">⋮</div>
+            <div class="menu-dropdown" id="menuDropdown">
+                <div class="menu-item" data-option="settings">Settings</div>
+                <div class="menu-item" data-option="memory">Memory</div>
+                <div class="menu-item" data-option="goals">Goals</div>
+                <div class="menu-item" data-option="history">History</div>
+                <div class="menu-item" data-option="ecosystem">Ecosystem Devices</div>
+            </div>
+        </div>
+
+        <!-- Modals for menu options (hidden by default) -->
+        <div id="memoryModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Memory</h2>
+                <div id="memoryList"></div>
+                <button id="syncMemoryBtn">Sync with Cloud</button>
+            </div>
+        </div>
+
+        <div id="goalsModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Goals</h2>
+                <input type="text" id="goalInput" placeholder="New goal...">
+                <button id="addGoalBtn">Add Goal</button>
+                <div id="goalsList"></div>
+            </div>
+        </div>
+
+        <!-- Other modals can be added similarly -->
+    </div>
+
+    <!-- Microphone activation overlay (shown once) -->
+    <div id="micOverlay" class="overlay">
+        <div class="overlay-content">
+            <h2>Activate SCAR</h2>
+            <p>SCAR needs microphone access to listen for wake word "Scar".</p>
+            <button id="activateMicBtn">Allow Microphone</button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
